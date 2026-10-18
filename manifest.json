@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Ramiof",
+  "version": "1.0",
+  "description": "Защита от фишинга, проверка паролей и устаревших систем безопасностей. Расширение создано в соответствии с 149, 152, 187 статьями ФЗ.",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "assets/icon48.png"
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/zxcvbn.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "webRequest",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "assets/warning-icon.png",
+      "block-info.html"
+    ],
+    "matches": ["<all_urls>"]
+  }]
+}
