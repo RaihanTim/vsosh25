@@ -1,5 +1,5 @@
 export async function checkUrlSafety(url) {
-  const API_KEY = "AIzaSyDIRt8axPOhRiJ";
+  const API_KEY = "ASDASDASDASDASDASDASDASDASDASDASD"; # your API key
   const apiUrl = `https://safebrowsing.googleapis.com/v4/threatMatches:find?key=${API_KEY}`;
 
   const requestData = {
